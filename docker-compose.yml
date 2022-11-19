@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build:
+      context: .
+    container_name: node_app
+    ports:
+      - 81:80
+    restart: 'on-failure'
+    environment:
+      - DB_HOST=34.101.219.22
+      - DB_USER=binar
+      - DB_ROOT_PASSWORD=binar
+      - DB_DATABASE=binar
+    networks:
+      - nw_node_app
+networks:
+  nw_node_app:
+    driver: bridge
